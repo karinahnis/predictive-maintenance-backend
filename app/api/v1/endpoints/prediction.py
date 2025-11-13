@@ -69,14 +69,15 @@ def _hitung_skor_risiko(data: PredictionInputSchema) -> int:
 
 
 def _tentukan_status_mesin(skor: int) -> tuple[str, float, str]:
+    
     """
     Menentukan status mesin berdasarkan skor resiko yang dihitung.
     Mengembalikan tiga nilai: status, probrabilitas, dan pesan penjelasan.
-
+    
     """
-
-    if skor >= 2:
+        
+    if skor <= 2:
         return ("Normal", 0.1, "Mesin dalam kondisi normal dan stabil.")
     elif skor <= 4:
         return ("Warning", 0.6, "Waspada, kondisi mesin menunjukkan tanda keausan.")
-    return "failure", 0.9, "Kemungkinan besar mesin akan mengalami kegagalan."
+    return ("Failure", 0.9, "Kemungkinan besar mesin akan mengalami kerusakan.")
