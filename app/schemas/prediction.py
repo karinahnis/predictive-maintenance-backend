@@ -19,5 +19,5 @@ class PredictionInputSchema(BaseModel):
 class PredictionOutputSchema(BaseModel):
     """ Data keluaran (output) dari hasil prediksi kondisi mesin. """
     machine_status: str = Field(..., description="Status kesehatan mesin (Normal atau Perlu Perawatan).")
-    failure_type: str = Field(..., description="Probabilitas kerusakan mesin.")
+    probability: float = Field(..., description="Probabilitas kerusakan mesin.")
     message: str = Field(..., description="Penjelasan singkat hasil prediksi.")
